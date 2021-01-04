@@ -30,7 +30,12 @@ let transak = new transakSDK({
     widgetWidth: '450px'
 });
 
-transak.init();
+transak.init({
+    cryptoCurrency: "ETH",
+    fiatCurrency: "INR",
+    isBuyOrSell: "BUY",
+    fiatAmount: 2000,
+});
 
 // To get all the events
 transak.on(transak.ALL_EVENTS, (data) => {

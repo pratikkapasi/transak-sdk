@@ -1338,7 +1338,15 @@ TransakSDK.prototype.on = function (type, cb) {
   if (type === this.ERROR) eventEmitter.on(this.ERROR, cb);
 };
 
-TransakSDK.prototype.init = function () {
+TransakSDK.prototype.init = async function (data) {
+  let result = await this.getPrice({
+    cryptoCurrency: "ETH",
+    fiatCurrency: "INR",
+    isBuyOrSell: "BUY",
+    fiatAmount: 2000
+  }); // TODO: Remove this log statement
+
+  console.log(result);
   this.modal(this);
 };
 
